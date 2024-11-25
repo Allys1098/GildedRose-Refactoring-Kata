@@ -15,6 +15,16 @@ describe('Gilded Rose', () => {
     expect(items[0].name).toBe('foo');
   });
 
+  // Standard quality degradation for random item
+  it('Normal quality degradation for any item', () => {
+    itemTest('lemon', 5, 5, 4, 4)
+  })
+
+  // If sellin is negative, Quality degrades by 2
+  it('Quality degradation after sellin expiration', () => {
+    itemTest('rotten apple', -1, 3, -2, 1)
+  })
+
   // If sellin is negative, Quality degrades by 2
   it('Quality degradation after sellin expiration', () => {
     itemTest('rotten apple', -1, 2, -2, 0)

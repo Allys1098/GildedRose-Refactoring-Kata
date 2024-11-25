@@ -26,6 +26,7 @@ export class GildedRose {
     return this.items;
   }
 
+
   // Update the quality of a single item
   updateItemQuality(item) {
 
@@ -64,7 +65,10 @@ export class GildedRose {
       }
       // All logic for other items
     } else {
-      item.quality = 0
+      this.addToQuality(item, -1)
+      if (item.sellIn < 0 && item.quality > 0){
+        this.addToQuality(item, -1);
+      }
     }
   }
 
